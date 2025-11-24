@@ -1,0 +1,63 @@
+@use '../variables' as *;
+
+// Subscribe Block
+.subscribe {
+    padding: 4rem 0;
+
+    &__card {
+        background: linear-gradient(135deg, #DFD7F9 0%, #EDEEFF 100%);
+        border-radius: 120px 20px 20px 20px;
+        padding: 4rem;
+        text-align: center;
+        position: relative;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    &__text {
+        font-size: 2rem;
+        color: $color-text;
+        font-weight: 600;
+        margin-bottom: 2.5rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.4;
+    }
+
+    &__form {
+        display: flex;
+        gap: 1rem;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    &__input {
+        flex: 1;
+        padding: 1.25rem 1.5rem;
+        border: none;
+        border-radius: 10px;
+        font-size: 0.95rem;
+        font-family: $font-primary;
+
+        &::placeholder {
+            color: #B8BECD;
+        }
+
+        &:focus {
+            outline: 2px solid $color-primary;
+        }
+    }
+
+    &__button {
+        padding: 1.25rem 2.5rem;
+        background: linear-gradient(180deg, #FF946D 0%, #FF7D68 100%);
+        color: $color-white;
+        border: none;
+        border-radius: 10px;
+        font-weight: 600;
+        cursor: default;
+        transition: all 0.3s ease;
+        user-select: none;
+    }
+}

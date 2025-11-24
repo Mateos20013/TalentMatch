@@ -1,0 +1,184 @@
+@charset "UTF-8";
+.booking {
+  padding: 4rem 0;
+}
+.booking__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+.booking__text {
+  max-width: 500px;
+}
+.booking__steps {
+  margin-top: 2rem;
+}
+.booking__card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+.step__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+.step__icon--destination {
+  background-color: #F0BB1F;
+}
+.step__icon--destination::before {
+  content: "📍";
+}
+.step__icon--payment {
+  background-color: #F15A2B;
+}
+.step__icon--payment::before {
+  content: "💳";
+}
+.step__icon--airport {
+  background-color: #006380;
+}
+.step__icon--airport::before {
+  content: "🚗";
+}
+.step__content {
+  flex: 1;
+}
+.step__title {
+  font-size: 1rem;
+  color: #181E4B;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.step__description {
+  font-size: 0.95rem;
+  color: #5E6282;
+  line-height: 1.6;
+}
+
+.trip-card {
+  background-color: #FFFFFF;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  max-width: 370px;
+}
+.trip-card__image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.trip-card__content {
+  padding: 1.5rem 2rem 2rem 2rem;
+}
+.trip-card__title {
+  font-size: 1.125rem;
+  color: #181E4B;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+.trip-card__date {
+  font-size: 0.95rem;
+  color: #5E6282;
+  margin-bottom: 1.25rem;
+}
+.trip-card__icons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.trip-card__icon {
+  font-size: 1.125rem;
+}
+.trip-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+}
+.trip-card__people {
+  font-size: 1rem;
+  color: #5E6282;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.trip-card__people::before {
+  content: "👥";
+  font-size: 1.125rem;
+}
+.trip-card__favorite {
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  cursor: default;
+  user-select: none;
+}
+
+.ongoing-trip {
+  position: absolute;
+  bottom: 30px;
+  right: -50px;
+  background-color: #FFFFFF;
+  padding: 1.5rem 2rem;
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  min-width: 260px;
+}
+.ongoing-trip__image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+}
+.ongoing-trip__content {
+  display: flex;
+  flex-direction: column;
+}
+.ongoing-trip__label {
+  font-size: 0.875rem;
+  color: #5E6282;
+  margin-bottom: 0.25rem;
+}
+.ongoing-trip__title {
+  font-size: 1.125rem;
+  color: #181E4B;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+.ongoing-trip__progress {
+  font-size: 0.875rem;
+  color: #DF6951;
+  margin-bottom: 0.5rem;
+}
+.ongoing-trip__bar {
+  width: 100%;
+  height: 5px;
+  background-color: #F7F7F7;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.ongoing-trip__bar::before {
+  content: "";
+  display: block;
+  width: 40%;
+  height: 100%;
+  background-color: #DF6951;
+  border-radius: 10px;
+}
+
+/*# sourceMappingURL=booking.css.map */
