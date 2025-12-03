@@ -41,7 +41,7 @@ public class MatchingService : IMatchingService
             var matchScore = CalculateMatchScore(candidate, jobOffer, avgPerformanceScore, 
                 achievementCount, certificateCount);
 
-            // Mostrar TODOS los candidatos con su score, sin filtrar
+            
             matches.Add(new CandidateMatch
             {
                 UserId = candidate.Id,

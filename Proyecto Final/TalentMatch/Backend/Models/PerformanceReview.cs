@@ -5,7 +5,7 @@ public class PerformanceReview
     public int Id { get; set; }
     public string EmployeeId { get; set; } = string.Empty;
     public string ReviewerId { get; set; } = string.Empty;
-    public string Period { get; set; } = string.Empty; // Ej: "Q1 2025"
+    public string Period { get; set; } = string.Empty; 
     public DateTime ReviewDate { get; set; } = DateTime.UtcNow;
     
     // Ratings (1-5)

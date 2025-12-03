@@ -23,17 +23,7 @@ El frontend se conecta al backend .NET en `http://localhost:5010`
 
 ## 📁 Estructura
 
-```
-Frontend/
-├── src/app/
-│   ├── guards/          # Guards de autenticación
-│   ├── models/          # Interfaces TypeScript
-│   ├── pages/           # Componentes de páginas
-│   ├── services/        # Servicios (Auth, API)
-│   └── app.routes.ts    # Rutas con guards
-├── src/environments/    # Configuración de entornos
-└── src/styles.scss      # Estilos globales corporativos
-```
+
 
 ## 🎯 Funcionalidades por Rol
 
