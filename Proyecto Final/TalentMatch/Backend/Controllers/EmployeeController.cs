@@ -10,25 +10,19 @@ namespace InternalTalentManagement.Controllers;
 // [Authorize] // Comentado temporalmente
 public class EmployeeController : Controller
 {
-    private readonly ApplicationDbContext _context;
+    private readonly IEmployeeRepository _employeeRepository;
     private readonly IWebHostEnvironment _environment;
 
-    public EmployeeController(ApplicationDbContext context, IWebHostEnvironment environment)
+    public EmployeeController(IEmployeeRepository employeeRepository, IWebHostEnvironment environment)
     {
-        _context = context;
+        _employeeRepository = employeeRepository;
         _environment = environment;
     }
 
     public async Task<IActionResult> Index()
     {
         var userId = GetUserId();
-        var user = await _context.Users
-            .Include(u => u.Objectives).ThenInclude(o => o.ProgressUpdates)
-            .Include(u => u.Achievements)
-            .Include(u => u.Certificates)
-            .Include(u => u.ReviewsReceived)
-            .FirstOrDefaultAsync(u => u.Id == userId);
-
+        var user = await _employeeRepository.GetEmployeeByIdAsync(userId);
         if (user == null) return NotFound();
         return View(user);
     }

@@ -1,3 +1,4 @@
+// ...existing code...
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -58,7 +59,8 @@ builder.Services.AddAuthorization(options =>
 });
 
 // Add Services
-builder.Services.AddScoped<IMatchingService, MatchingService>();
+builder.Services.AddSingleton<IAuthenticationService, AuthenticationService>();
+builder.Services.AddSingleton<IMatchingService, MatchingService>();
 
 // Add CORS
 builder.Services.AddCors(options =>

@@ -5,6 +5,8 @@ using System.Security.Claims;
 using InternalTalentManagement.Models;
 using InternalTalentManagement.ViewModels;
 
+using InternalTalentManagement.Services;
+
 namespace InternalTalentManagement.Controllers;
 
 public class AccountController : Controller
@@ -12,12 +14,14 @@ public class AccountController : Controller
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
     private readonly ILogger<AccountController> _logger;
+    private readonly IAuthenticationService _authService;
 
-    public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ILogger<AccountController> logger)
+    public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ILogger<AccountController> logger, IAuthenticationService authService)
     {
         _userManager = userManager;
         _signInManager = signInManager;
         _logger = logger;
+        _authService = authService;
     }
 
     [HttpGet]
@@ -29,19 +33,14 @@ public class AccountController : Controller
     {
         if (!ModelState.IsValid) return View(model);
 
-        var user = await _userManager.FindByEmailAsync(model.Email);
-        if (user == null || !user.IsApproved)
+        var user = await _authService.AuthenticateUserAsync(model.Email, model.Password);
+        if (user == null || !await _authService.IsUserApprovedAsync(user))
         {
             ModelState.AddModelError("", "Usuario no encontrado o no aprobado.");
             return View(model);
         }
 
-        var result = await _signInManager.PasswordSignInAsync(user.UserName!, model.Password, model.RememberMe, false);
-        if (!result.Succeeded)
-        {
-            ModelState.AddModelError("", "Credenciales inválidas.");
-            return View(model);
-        }
+        await _signInManager.SignInAsync(user, isPersistent: model.RememberMe);
 
         var roles = await _userManager.GetRolesAsync(user);
         var role = roles.FirstOrDefault() ?? "Employee";
@@ -108,7 +107,7 @@ public class AccountController : Controller
             return BadRequest(new { message = "Datos inválidos", errors = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage)) });
         }
 
-        var user = await _userManager.FindByEmailAsync(model.Email);
+        var user = await _authService.AuthenticateUserAsync(model.Email, model.Password);
         if (user == null)
         {
             _logger.LogWarning("Usuario no encontrado: {Email}", model.Email);
@@ -117,20 +116,14 @@ public class AccountController : Controller
 
         _logger.LogInformation("Usuario encontrado: {UserId}, IsApproved: {IsApproved}", user.Id, user.IsApproved);
 
-        if (!user.IsApproved)
+        if (!await _authService.IsUserApprovedAsync(user))
         {
             _logger.LogWarning("Usuario no aprobado: {Email}", model.Email);
             return Unauthorized(new { message = "Tu cuenta está pendiente de aprobación por HR." });
         }
 
         // Iniciar sesión con cookies
-        var result = await _signInManager.PasswordSignInAsync(user, model.Password, isPersistent: true, lockoutOnFailure: false);
-        
-        if (!result.Succeeded)
-        {
-            _logger.LogWarning("Credenciales inválidas para: {Email}", model.Email);
-            return Unauthorized(new { message = "Credenciales inválidas." });
-        }
+        await _signInManager.SignInAsync(user, isPersistent: true);
 
         var roles = await _userManager.GetRolesAsync(user);
         var role = roles.FirstOrDefault() ?? "Employee";
