@@ -1,0 +1,50 @@
+@model IEnumerable<InternalTalentManagement.Models.ApplicationUser>
+@{
+    ViewData["Title"] = "Usuarios Pendientes de Aprobación";
+}
+
+<h1>Usuarios Pendientes de Aprobación</h1>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-warning">No hay usuarios pendientes de aprobación.</div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Departamento</th>
+                <th>Posición</th>
+                <th>Fecha Registro</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.FirstName @user.LastName</td>
+                    <td>@user.Email</td>
+                    <td>@user.Department</td>
+                    <td>@user.Position</td>
+                    <td>@user.HireDate.ToString("dd/MM/yyyy")</td>
+                    <td>
+                        <form method="post" asp-action="ApproveUser" style="display:inline;">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="userId" value="@user.Id" />
+                            <select name="role" class="form-control" style="display:inline; width:auto; margin-right:10px;">
+                                <option value="Employee">Empleado</option>
+                                <option value="Supervisor">Supervisor</option>
+                                <option value="HR">Recursos Humanos</option>
+                            </select>
+                            <button type="submit" class="btn btn-success btn-sm">Aprobar</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
