@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "or95CcFfpKQ=",
+  "dgSpecHash": "VzAxEraUcag=",
   "success": true,
   "projectFilePath": "C:\\Users\\RUTH\\OneDrive\\Imágenes\\mateo\\TalentMatch\\Proyecto Final\\TalentMatch\\Backend\\InternalTalentManagement.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\RUTH\\.nuget\\packages\\buildwebcompiler\\1.12.405\\buildwebcompiler.1.12.405.nupkg.sha512",
     "C:\\Users\\RUTH\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\RUTH\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\9.0.0\\microsoft.aspnetcore.authentication.jwtbearer.9.0.0.nupkg.sha512",
     "C:\\Users\\RUTH\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\9.0.0\\microsoft.aspnetcore.cryptography.internal.9.0.0.nupkg.sha512",

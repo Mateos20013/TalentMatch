@@ -139,3 +139,4 @@ C:\Users\RUTH\OneDrive\Imágenes\mateo\TalentMatch\Proyecto Final\TalentMatch\Ba
 C:\Users\RUTH\OneDrive\Imágenes\mateo\TalentMatch\Proyecto Final\TalentMatch\Backend\obj\Debug\net9.0\InternalTalentManagement.pdb
 C:\Users\RUTH\OneDrive\Imágenes\mateo\TalentMatch\Proyecto Final\TalentMatch\Backend\obj\Debug\net9.0\InternalTalentManagement.genruntimeconfig.cache
 C:\Users\RUTH\OneDrive\Imágenes\mateo\TalentMatch\Proyecto Final\TalentMatch\Backend\obj\Debug\net9.0\ref\InternalTalentManagement.dll
+C:\Users\RUTH\OneDrive\Imágenes\mateo\TalentMatch\Proyecto Final\TalentMatch\Backend\bin\Debug\net9.0\railway.json

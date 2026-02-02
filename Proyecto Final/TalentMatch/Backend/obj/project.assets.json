@@ -2,12 +2,6 @@
   "version": 3,
   "targets": {
     "net9.0": {
-      "BuildWebCompiler/1.12.405": {
-        "type": "package",
-        "build": {
-          "build/BuildWebCompiler.targets": {}
-        }
-      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -1134,29 +1128,6 @@
     }
   },
   "libraries": {
-    "BuildWebCompiler/1.12.405": {
-      "sha512": "1l1RK0jV+5QjJM22J5IGHm/EFaB3JN0WorKnLLP6HRnnf5H4sU4IBdBnMwN1OrVmww/3ir8fhbV0ZNGX6Uqn5w==",
-      "type": "package",
-      "path": "buildwebcompiler/1.12.405",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "build/BuildWebCompiler.targets",
-        "buildwebcompiler.1.12.405.nupkg.sha512",
-        "buildwebcompiler.nuspec",
-        "tools/net46/NUglify.dll",
-        "tools/net46/Newtonsoft.Json.dll",
-        "tools/net46/WebCompiler.exe",
-        "tools/netcoreapp2.0/NUglify.dll",
-        "tools/netcoreapp2.0/Newtonsoft.Json.dll",
-        "tools/netcoreapp2.0/WebCompiler.dll",
-        "tools/netcoreapp2.0/WebCompiler.runtimeconfig.json",
-        "tools/netstandard2.0/NUglify.dll",
-        "tools/netstandard2.0/Newtonsoft.Json.dll",
-        "tools/netstandard2.0/WebCompiler.dll"
-      ]
-    },
     "Humanizer.Core/2.14.1": {
       "sha512": "lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "type": "package",
@@ -3287,7 +3258,6 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "BuildWebCompiler >= 1.12.405",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 9.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 9.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 9.0.0",
@@ -3337,10 +3307,6 @@
       "net9.0": {
         "targetAlias": "net9.0",
         "dependencies": {
-          "BuildWebCompiler": {
-            "target": "Package",
-            "version": "[1.12.405, )"
-          },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
             "version": "[9.0.0, )"
