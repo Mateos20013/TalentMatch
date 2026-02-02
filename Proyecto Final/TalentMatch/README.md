@@ -79,3 +79,9 @@ El frontend se ejecuta en: `http://localhost:4200`
 
 ### Contacto
 Para dudas o sugerencias, abre un issue en el repositorio de GitHub.
+
+
+
+--------
+URL dATABASE
+postgresql://postgres:cbZcJdEcaswtIjOJLfUuCCeWDpbWdliE@postgres.railway.internal:5432/railway
