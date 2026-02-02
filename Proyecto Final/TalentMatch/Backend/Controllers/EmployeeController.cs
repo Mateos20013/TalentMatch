@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using InternalTalentManagement.Data;
 using InternalTalentManagement.Models;
+using InternalTalentManagement.Services;
 
 namespace InternalTalentManagement.Controllers;
 
@@ -12,11 +13,13 @@ public class EmployeeController : Controller
 {
     private readonly IEmployeeRepository _employeeRepository;
     private readonly IWebHostEnvironment _environment;
+    private readonly ApplicationDbContext _context;
 
-    public EmployeeController(IEmployeeRepository employeeRepository, IWebHostEnvironment environment)
+    public EmployeeController(IEmployeeRepository employeeRepository, IWebHostEnvironment environment, ApplicationDbContext context)
     {
         _employeeRepository = employeeRepository;
         _environment = environment;
+        _context = context;
     }
 
     public async Task<IActionResult> Index()

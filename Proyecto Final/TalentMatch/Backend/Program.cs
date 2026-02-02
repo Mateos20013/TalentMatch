@@ -59,8 +59,9 @@ builder.Services.AddAuthorization(options =>
 });
 
 // Add Services
-builder.Services.AddSingleton<IAuthenticationService, AuthenticationService>();
-builder.Services.AddSingleton<IMatchingService, MatchingService>();
+builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+builder.Services.AddScoped<IMatchingService, MatchingService>();
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
 // Add CORS
 builder.Services.AddCors(options =>

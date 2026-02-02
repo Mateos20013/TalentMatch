@@ -21,6 +21,43 @@ Plataforma para la gestión de talento interno y procesos de selección.
 
 ---
 
+## 👤 Usuarios de Prueba
+
+| Rol | Email | Contraseña |
+|-----|-------|------------|
+| **HR (Recursos Humanos)** | `mateo@ntt.com` | `Mateo@123` |
+| **Supervisor** | `mateos20015@ntt.com` | `Mateo@123` |
+| **Empleado** | `mateos20013@ntt.com` | `Mateo@123` |
+
+> **Nota:** Todos los usuarios usan la misma contraseña: `Mateo@123`
+
+---
+
+### ¿Cómo ejecutar el proyecto localmente?
+
+#### Requisitos previos
+- [.NET SDK 8.0+](https://dotnet.microsoft.com/download)
+- [Node.js LTS](https://nodejs.org/)
+- [PostgreSQL](https://www.postgresql.org/download/)
+
+#### Backend (.NET)
+```bash
+cd Backend
+dotnet ef database update
+dotnet run
+```
+El backend se ejecuta en: `http://localhost:5010`
+
+#### Frontend (Angular)
+```bash
+cd Frontend
+npm install
+npm start
+```
+El frontend se ejecuta en: `http://localhost:4200`
+
+---
+
 ### ¿Cómo desplegar el proyecto?
 
 #### Backend (.NET)
